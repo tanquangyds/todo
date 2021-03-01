@@ -1,20 +1,21 @@
-import React from "react";
-import* as Bs from 'react-bootstrap';
+import React, { useState } from "react";
+
+import * as CardForm from "./CardForm.styled";
 
 const Card = (props) => {
-  const {task} = props
+  const { task, deleteCard } = props;
+  const handleDeleteCard = () => {
+    deleteCard(task.id);
+  };
   return (
-    <Bs.Card style={{ width: '18rem' }}>
-    <Bs.Card.Body>
-      <Bs.Card.Title>{task.title}</Bs.Card.Title>
-      <Bs.Card.Subtitle className="mb-2 text-muted">{task.creator}</Bs.Card.Subtitle>
-      <Bs.Card.Text>
-        {task.desc}
-      </Bs.Card.Text>
-      <Bs.Card.Link href="#">Card Link</Bs.Card.Link>
-      <Bs.Card.Link href="#">Another Link</Bs.Card.Link>
-    </Bs.Card.Body>
-  </Bs.Card>
+    <CardForm.Warp>
+        <CardForm.Body>
+          <CardForm.Title>{task.title}</CardForm.Title>
+          <CardForm.Subtitle>{task.creator}</CardForm.Subtitle>
+          <CardForm.Desc>{task.desc}</CardForm.Desc>
+        </CardForm.Body>
+        <CardForm.Delete onClick={handleDeleteCard}>Delete Card</CardForm.Delete>
+      </CardForm.Warp>
   );
 };
 

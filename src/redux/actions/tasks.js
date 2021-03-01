@@ -15,3 +15,19 @@ export function addTasks(newTask) {
     }
     
 }
+
+export function deleteTask(idTask) {
+    return {
+        type: type.DELETE_TASKS_REQUEST,
+        payload: idTask,
+    }
+    
+}
+
+export function updateTasks(taskUpdate) {
+    return {
+        type: type.UPDATE_TASKS_REQUEST,
+        payload: taskUpdate,
+    }
+    
+}

@@ -35,10 +35,17 @@ export default function tasks(state = initialState, action) {
                 error: action.message
 
             }
-        case type.ADD_TASKS_SUCCESS: 
+        case type.UPDATE_TASKS_REQUEST:
             return {
                 ...state,
-                loading: false,
+                loading: true,
+
+            }
+        case type.DELETE_TASKS_REQUEST:
+            return {
+                ...state,
+                loading: true,
+
             }
         default:
             return state
